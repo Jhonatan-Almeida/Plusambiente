@@ -17,8 +17,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 usuario = edtUsuario.getText().toString();
                 password = edtPassword.getText().toString();
                 if(!usuario.isEmpty() && !password.isEmpty()){
-                    validarUsuario("http://localhost/plusambiete2/servicios/cliente/login.php");
+                    validarUsuario("http://192.168.100.25/plusambiete2/servicios/cliente/login.php");
                 }else{
                     Toast.makeText(MainActivity.this,"Ingresar las credenciales.!!",Toast.LENGTH_SHORT).show();
                 }
@@ -53,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void validarUsuario(String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String response) {
                 if(!response.isEmpty()){
@@ -81,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+   
     private void guardarPreferencias(){
         SharedPreferences preferences=getSharedPreferences("prefereciasLogin",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor= preferences.edit();
