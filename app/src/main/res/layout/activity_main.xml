@@ -57,7 +57,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="15dp"
-                android:background="#1976d2"
+                android:background="@drawable/bordes_redondos"
                 android:text="Iniciar Sesión"
                 android:textColor="#FFF"
                 android:textSize="18sp" />

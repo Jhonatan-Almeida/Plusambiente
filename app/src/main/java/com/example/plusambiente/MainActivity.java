@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,28 +19,31 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     EditText edtUsuario,edtPassword;
     Button btnLogin;
 
-    String usuario, password;
+    String usuario, password,usu_id,usup_id,pef_id,tpef_id,per_nombres,per_identificacion;
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        edtUsuario = findViewById(R.id.edtUsuario);
-        edtPassword = findViewById(R.id.edtPassword);
-        btnLogin = findViewById(R.id.btnLogin);
+        edtUsuario = (EditText)findViewById(R.id.edtUsuario);
+        edtPassword = (EditText)findViewById(R.id.edtPassword);
+        btnLogin = (Button)findViewById(R.id.btnLogin);
         recuperarPreferencias();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,10 +65,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if(!response.isEmpty()){
+                    System.out.println(response);
                     guardarPreferencias();
-                    Intent intent=new Intent(getApplicationContext(),PrincipalActivity.class);
-                    startActivity(intent);
-                    finish();
+                    buscarlogin("http://192.168.100.25/plusambiete2/servicios/cliente/loginG.php?usuario="+usuario+"&password="+password);
                 }else{
                     Toast.makeText(MainActivity.this,"Credenciales invalidas...!",Toast.LENGTH_SHORT).show();
                 }
@@ -83,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
    
@@ -94,6 +97,44 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("password",password);
         editor.putBoolean("sesion",true);
         editor.commit();
+    }
+    private void buscarlogin(String URL){
+        System.out.println(URL);
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        usu_id= jsonObject.getString("usu_id");
+                        usup_id = jsonObject.getString("usup_id");
+                        pef_id = jsonObject.getString("pef_id");
+                        per_nombres = jsonObject.getString("per_nombres");
+                        tpef_id = jsonObject.getString("tpef_id");
+                        per_identificacion = jsonObject.getString("per_identificacion");
+                    } catch (JSONException e) {
+                        Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+                Intent intent=new Intent(MainActivity.this,PrincipalActivity.class);
+                intent.putExtra("usu_id",usu_id);
+                intent.putExtra("usup_id",usup_id);
+                intent.putExtra("pef_id",pef_id);
+                intent.putExtra("per_nombres",per_nombres);
+                intent.putExtra("per_identificacion",per_identificacion);
+                startActivity(intent);
+                finish();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this,"Existe algún error",Toast.LENGTH_SHORT).show();
+            }
+        }
+        );
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
     }
     private void recuperarPreferencias(){
         SharedPreferences preferences=getSharedPreferences("prefereciasLogin",Context.MODE_PRIVATE);

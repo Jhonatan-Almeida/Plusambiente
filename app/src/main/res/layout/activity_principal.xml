@@ -6,24 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".PrincipalActivity">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#2B6E3B"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/truck"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="BIENVENIDO AL SISTEMA PLUSAMBIENTE"
-            android:textSize="36sp"
+            android:text="ORDENES DE TRABAJO ASIGNADAS"
+            android:textSize="26sp"
             android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="499dp" />
 
 
         <Button
@@ -33,8 +45,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
-            android:text="Cerrar Sesión"
             android:background="@drawable/bordes_redondos"
+            android:text="Cerrar Sesión"
             android:textColor="#FFF"
             android:textSize="18sp" />
 
