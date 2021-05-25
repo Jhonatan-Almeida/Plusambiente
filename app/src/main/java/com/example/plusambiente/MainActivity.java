@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onResponse(String response) {
                 if(!response.isEmpty()){
-                    System.out.println(response);
                     guardarPreferencias();
                     buscarlogin("http://192.168.100.25/plusambiete2/servicios/cliente/loginG.php?usuario="+usuario+"&password="+password);
                 }else{
@@ -99,7 +98,6 @@ public class MainActivity extends AppCompatActivity{
         editor.commit();
     }
     private void buscarlogin(String URL){
-        System.out.println(URL);
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
