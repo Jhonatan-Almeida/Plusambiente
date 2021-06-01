@@ -1,19 +1,22 @@
 package com.example.plusambiente;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class AdapterOdt extends RecyclerView.Adapter<AdapterOdt.ViewHolderEquipos> {
+public class AdapterOdt extends RecyclerView.Adapter<AdapterOdt.ViewHolderEquipos> implements View.OnClickListener{
     ArrayList<odt> listaOdt;
-
+    private View.OnClickListener listener;
     public AdapterOdt(ArrayList<odt> listaOdt) {
         this.listaOdt = listaOdt;
     }
@@ -23,6 +26,7 @@ public class AdapterOdt extends RecyclerView.Adapter<AdapterOdt.ViewHolderEquipo
     @Override
     public ViewHolderEquipos onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_odt, null, false);
+        view.setOnClickListener(this);
         return new ViewHolderEquipos(view);
     }
 
@@ -33,11 +37,29 @@ public class AdapterOdt extends RecyclerView.Adapter<AdapterOdt.ViewHolderEquipo
         holder.txtCliente.setText(listaOdt.get(i).getCli_nombre());
         holder.txtTecnico.setText(listaOdt.get(i).getTec_nombre());
         holder.txtConductor.setText(listaOdt.get(i).getConductor());
+       /* holder.txtManifiesto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(v.getContext(),DesechoActivity.class);
+                intent.putExtra("sol_id",listaOdt.get(i).sol_id);
+                //System.out.println("Ingreso al ODT"+listaOdt.get(i).sol_id);
+
+            }
+        });*/
     }
 
     @Override
     public int getItemCount() {
        return listaOdt.size();
+    }
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener = listener;
+    }
+    @Override
+    public void onClick(View v) {
+        if(listener != null){
+            listener.onClick(v);
+        }
     }
 
     public class ViewHolderEquipos extends RecyclerView.ViewHolder {

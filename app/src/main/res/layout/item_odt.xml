@@ -4,33 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="5dp"
-    android:orientation="vertical">
+    app:layout_constraintCircleRadius="5dp">
 
     <ImageView
         android:id="@+id/imageOdt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:src="@drawable/semaphoreci"/>
+        android:gravity="center"
+        android:src="@drawable/semaphoreci" />
+
     <TextView
         android:id="@+id/txtManifiesto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
+        android:alpha="0.5"
         android:background="#FF018786"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textSize="24dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="visible" />
+
     <TextView
         android:id="@+id/txtSolicitud"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textColor="#BABBBA"
+        android:textSize="10dp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/txtCliente"
         android:layout_width="match_parent"
@@ -39,20 +48,22 @@
         android:textColor="@color/black"
         android:textSize="16dp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/txtTecnico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        android:textStyle="bold" />
+        android:textColor="#BABBBA"
+        android:textSize="12dp"
+        android:textStyle="italic"/>
+
     <TextView
         android:id="@+id/txtConductor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textColor="#BABBBA"
+        android:textSize="12dp"
         android:textStyle="bold" />
 </LinearLayout>

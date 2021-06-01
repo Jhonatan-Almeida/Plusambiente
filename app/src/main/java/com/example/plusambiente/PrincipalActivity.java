@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -35,6 +36,7 @@ public class PrincipalActivity extends AppCompatActivity {
     ArrayList<odt> listaOdt;
     RecyclerView recyclerOdt;
     RequestQueue requestQueue;
+    String identificacion,nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,8 @@ public class PrincipalActivity extends AppCompatActivity {
         //tomamos los datos del intent
         datos = getIntent().getExtras();
         if (datos != null){
-            String nombre = datos.getString("per_nombres");
-            String identificacion = datos.getString("per_identificacion");
+            nombre = datos.getString("per_nombres");
+            identificacion = datos.getString("per_identificacion");
             txtUsuario.setText(nombre);
             recyclerOdt = (RecyclerView) findViewById(R.id.rvOdt);
             recyclerOdt.setLayoutManager(new GridLayoutManager(this, 1));
@@ -87,9 +89,20 @@ public class PrincipalActivity extends AppCompatActivity {
 
                                 listaOdt.add(new odt(auxSolicitud, auxManifiesto, auxCliente, auxTecnico, auxConductor));
                             }
-
                             AdapterOdt adaptador = new AdapterOdt(listaOdt);
-
+                            adaptador.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent=new Intent(PrincipalActivity.this,DesechoActivity.class);
+                                    intent.putExtra("sol_id",listaOdt.get
+                                            (recyclerOdt.getChildAdapterPosition(v))
+                                            .getSol_id());
+                                    intent.putExtra("per_identificacion",identificacion);
+                                    intent.putExtra("per_nombres",nombre);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            });
                             recyclerOdt.setAdapter(adaptador);
 
                         } catch (JSONException e) {
@@ -105,4 +118,5 @@ public class PrincipalActivity extends AppCompatActivity {
 
         requestQueue.add(stringRequest);
     }
+
 }
