@@ -13,17 +13,18 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textUsuario"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#2B6E3B"
-            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_baseline_time_to_leave_24"
             android:paddingLeft="10dp"
+            android:textColor="@color/white"
             android:textSize="20dp"
-            android:drawableLeft="@drawable/truck"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="parent"
             tools:ignore="MissingConstraints" />
@@ -49,7 +50,8 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/bordes_redondos"
-            android:text="Cerrar Sesión"
+            android:drawableLeft="@drawable/ic_baseline_directions_run_24"
+            android:text="@string/leave_session"
             android:textColor="#FFF"
             android:textSize="18sp" />
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">plusambiente</string>
+    <string name="leave_session">Salir de sesión</string>
 </resources>

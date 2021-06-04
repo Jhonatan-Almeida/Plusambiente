@@ -22,6 +22,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,12 +49,13 @@ public class MainActivity extends AppCompatActivity{
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                usuario = edtUsuario.getText().toString();
-                password = edtPassword.getText().toString();
+                usuario = edtUsuario.getText().toString();//obtener el texto del editText
+                password = edtPassword.getText().toString();//obtener el texto del editText
                 if(!usuario.isEmpty() && !password.isEmpty()){
                     validarUsuario("http://192.168.100.25/plusambiete2/servicios/cliente/login.php");
                 }else{
-                    Toast.makeText(MainActivity.this,"Ingresar las credenciales.!!",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this,"Ingresar las credenciales.!!",Toast.LENGTH_SHORT).show();
+                    Snackbar.make(v,"Ingresar las credenciales.!!", Snackbar.LENGTH_LONG).show();
                 }
 
             }
@@ -68,7 +70,8 @@ public class MainActivity extends AppCompatActivity{
                     guardarPreferencias();
                     buscarlogin("http://192.168.100.25/plusambiete2/servicios/cliente/loginG.php?usuario="+usuario+"&password="+password);
                 }else{
-                    Toast.makeText(MainActivity.this,"Credenciales invalidas...!",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this,"Credenciales invalidas...!",Toast.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.Login) ,"Credenciales invalidas...!", Snackbar.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {

@@ -1,7 +1,8 @@
 package com.example.plusambiente;
 
 public class desechos {
-    String sol_id, des_codigo, des_descripcion, cat_unidad, cat_peligroso, dsol_cantidad;
+    String sol_id, des_codigo, des_descripcion, cat_unidad, cat_peligroso;
+    String dsol_cantidad;
 
 
     public desechos(String sol_id, String des_codigo, String des_descripcion, String cat_unidad, String cat_peligroso, String dsol_cantidad) {

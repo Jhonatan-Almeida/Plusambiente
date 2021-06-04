@@ -10,9 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class DesechoActivity extends AppCompatActivity {
     Bundle datos;
-    Button btnGuardar,btnRegresar;
+
+    FloatingActionButton btnRegresar,btnGuardar;
     String sol_id,per_nombres,per_identificacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class DesechoActivity extends AppCompatActivity {
         //Enviar al Fragment
         Bundle dat = new Bundle();
         dat.putString("sol_id",sol_id);
-        DesechosFragment desechosFragment=new DesechosFragment();
+        DesechosFragment desechosFragment= new DesechosFragment();
         desechosFragment.setArguments(dat);
         getSupportFragmentManager()
                 .beginTransaction()
@@ -45,6 +48,7 @@ public class DesechoActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
 

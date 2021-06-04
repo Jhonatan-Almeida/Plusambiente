@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/Login"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -34,7 +35,7 @@
                 android:backgroundTint="@android:color/darker_gray"
                 android:ems="10"
                 android:hint="Usuario"
-                android:inputType="textPersonName"
+                android:inputType="numberSigned"
                 android:paddingLeft="5dp" />
 
             <EditText
@@ -58,6 +59,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/bordes_redondos"
+                android:drawableLeft="@drawable/ic_baseline_fingerprint_24"
                 android:text="Iniciar Sesión"
                 android:textColor="#FFF"
                 android:textSize="18sp" />

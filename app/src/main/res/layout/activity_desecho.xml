@@ -9,35 +9,57 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentDesechos"
         android:name="com.example.plusambiente.DesechosFragment"
-        android:layout_width="411dp"
-        android:layout_height="731dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alwaysDrawnWithCache="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-    <Button
-        android:id="@+id/btnGuardar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_weight="1"
-        android:text="Guardar Datos"
-        app:layout_constraintEnd_toStartOf="@+id/btnRegresar"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="-7dp" />
 
-    <Button
-        android:id="@+id/btnRegresar"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/guardar"
-        android:layout_weight="1"
-        android:text="Regresar"
-        app:layout_constraintTop_toTopOf="@+id/btnGuardar"
-        tools:ignore="MissingConstraints,UnknownId"
-        tools:layout_editor_absoluteX="238dp" />
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="44dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnRegresar"
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_baseline_navigate_before_24"
+            tools:ignore="MissingConstraints,VectorDrawableCompat"
+            tools:layout_editor_absoluteX="319dp"
+            tools:layout_editor_absoluteY="625dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/btnRegresar"
+            app:layout_constraintEnd_toStartOf="@+id/btnRegresar"
+            app:layout_constraintHorizontal_bias="0.546"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnRegresar"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_baseline_check_24"
+            tools:ignore="MissingConstraints,VectorDrawableCompat" />
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

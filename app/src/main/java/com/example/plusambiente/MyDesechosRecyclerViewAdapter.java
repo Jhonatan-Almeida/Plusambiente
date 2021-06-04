@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -50,7 +51,7 @@ public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesech
         public final TextView txtDescripcion;
         public final TextView txtUnidad;
         public final TextView txtPeligroso;
-        public final TextView edtCantidad;
+        public final EditText edtCantidad;
         public desechos mItem;
 
         public ViewHolder(FragmentItemBinding binding) {

@@ -21,6 +21,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,7 +30,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class PrincipalActivity extends AppCompatActivity {
+public class PrincipalActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnCerrar;
     Bundle datos;
     TextView txtUsuario;
@@ -67,6 +68,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 finish();
             }
         });
+        txtUsuario.setOnClickListener(PrincipalActivity.this);
     }
     public void obtenerodt(String URL) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -119,4 +121,9 @@ public class PrincipalActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    @Override
+    public void onClick(View v) {
+        Snackbar.make(v,"El conductor tiene el número de cédula "+identificacion,Snackbar.LENGTH_LONG).show();
+        //Toast.makeText(v.getContext(),"El conductor tiene el número de cédula "+identificacion,Toast.LENGTH_SHORT).show();
+    }
 }

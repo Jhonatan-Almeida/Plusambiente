@@ -89,7 +89,6 @@ public class DesechosFragment extends Fragment {
             // Lista de elemento de desechos
 
             if(sol_id != null){
-                System.out.println("Desdes DesechosFragmente jhonatan "+sol_id);
                 obteneDesechos("http://192.168.100.25/plusambiete2/servicios/cliente/listaDesechos.php?sol_id="+sol_id);
             }
         }
@@ -115,9 +114,9 @@ public class DesechosFragment extends Fragment {
                                 String cat_peligroso = jsonObject1.getString("cat_peligroso");
                                 String dsol_cantidad = jsonObject1.getString("dsol_cantidad");
 
-                                desechosList.add(new desechos(auxSolicitud, des_codigo, des_descripcion, cat_unidad, cat_peligroso,dsol_cantidad));
-                            }
 
+                                desechosList.add(new desechos(auxSolicitud, des_codigo, des_descripcion, cat_unidad, cat_peligroso, dsol_cantidad));
+                            }
                             adapterDesecho = new MyDesechosRecyclerViewAdapter(desechosList);
                             recyclerView.setAdapter(adapterDesecho);
 

@@ -12,7 +12,8 @@
         android:gravity="center"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
 
         <ProgressBar
             android:id="@+id/progressBar"
