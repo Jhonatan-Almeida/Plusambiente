@@ -40,7 +40,7 @@ public class DesechosFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     private static final String ARG_PARAM1 = "sol_id";
     // TODO: Customize parameters
-    private int mColumnCount = 1;
+    private int mColumnCount = 2;
     private String sol_id;
 
 

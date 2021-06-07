@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity{
                     guardarPreferencias();
                     buscarlogin("http://192.168.100.25/plusambiete2/servicios/cliente/loginG.php?usuario="+usuario+"&password="+password);
                 }else{
-                    //Toast.makeText(MainActivity.this,"Credenciales invalidas...!",Toast.LENGTH_SHORT).show();
-                    Snackbar.make(findViewById(R.id.Login) ,"Credenciales invalidas...!", Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,"Credenciales invalidas...!",Toast.LENGTH_SHORT).show();
+                    //Snackbar.make(findViewById(R.id.Login) ,"Credenciales invalidas...!", Snackbar.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {

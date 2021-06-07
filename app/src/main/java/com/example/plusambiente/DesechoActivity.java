@@ -11,12 +11,18 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class DesechoActivity extends AppCompatActivity {
     Bundle datos;
-
     FloatingActionButton btnRegresar,btnGuardar;
     String sol_id,per_nombres,per_identificacion;
+    List<desechos> desechos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +43,8 @@ public class DesechoActivity extends AppCompatActivity {
                 .beginTransaction()
                 .add(R.id.fragmentDesechos,desechosFragment)
                 .commit();
+        //MyDesechosRecyclerViewAdapter adaptador = new MyDesechosRecyclerViewAdapter(desechos);
+
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +56,18 @@ public class DesechoActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Snackbar.make(v,"Se ha recuperado los datos",Snackbar.LENGTH_LONG).show();
+                   /* ArrayList<String> cantidad = new ArrayList<String>();
+                    String[] desecho= adaptador.getCantidades();
+                    for (int i=0;i<desecho.length;i++){
+                        cantidad.add(desecho[i]);
+                    }
+                    System.out.println(cantidad);*/
+            }
+        });
     }
 
 
