@@ -21,7 +21,7 @@ public class DesechoActivity extends AppCompatActivity {
     Bundle datos;
     FloatingActionButton btnRegresar,btnGuardar;
     String sol_id,per_nombres,per_identificacion;
-    List<desechos> desechos;
+    List<desechos> desechosList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class DesechoActivity extends AppCompatActivity {
                 .beginTransaction()
                 .add(R.id.fragmentDesechos,desechosFragment)
                 .commit();
-        //MyDesechosRecyclerViewAdapter adaptador = new MyDesechosRecyclerViewAdapter(desechos);
+       // MyDesechosRecyclerViewAdapter adaptador = new MyDesechosRecyclerViewAdapter(desechosList);
 
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,6 +2,7 @@ package com.example.plusambiente;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -18,11 +19,12 @@ import java.util.List;
 
 
 public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesechosRecyclerViewAdapter.ViewHolder> {
-
+    private Context ctx;
     private final List<desechos> mValues;
     String[] cantidades;
 
-    public MyDesechosRecyclerViewAdapter(List<desechos> items) {
+    public MyDesechosRecyclerViewAdapter(Context context,List<desechos> items) {
+        ctx = context;
         mValues = items;
         cantidades = new String[items.size()];
     }
@@ -60,7 +62,7 @@ public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesech
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        EditText edtCantidad;
+        //EditText edtCantidad;
 
 
         public final TextView txtCodigo;
@@ -68,7 +70,7 @@ public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesech
         public final TextView txtDescripcion;
         public final TextView txtUnidad;
         public final TextView txtPeligroso;
-        //public final EditText edtCantidad;
+        public final EditText edtCantidad;
         public desechos mItem;
 
         public ViewHolder(FragmentItemBinding binding) {
@@ -78,8 +80,8 @@ public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesech
             txtDescripcion = binding.txtDescripcion;
             txtUnidad = binding.txtUnidad;
             txtPeligroso = binding.txtUnidad;
-           // edtCantidad = binding.edtCantidad;
-            /*edtCantidad.addTextChangedListener(new TextWatcher() {
+            edtCantidad = binding.edtCantidad;
+            edtCantidad.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -94,7 +96,7 @@ public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesech
                 public void afterTextChanged(Editable s) {
 
                 }
-            });*/
+            });
         }
 
         @Override

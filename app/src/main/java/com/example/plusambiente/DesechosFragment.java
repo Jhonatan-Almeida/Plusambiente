@@ -117,7 +117,7 @@ public class DesechosFragment extends Fragment {
 
                                 desechosList.add(new desechos(auxSolicitud, des_codigo, des_descripcion, cat_unidad, cat_peligroso, dsol_cantidad));
                             }
-                            adapterDesecho = new MyDesechosRecyclerViewAdapter(desechosList);
+                            adapterDesecho = new MyDesechosRecyclerViewAdapter (getActivity(),desechosList);
                             recyclerView.setAdapter(adapterDesecho);
 
                         } catch (JSONException e) {
