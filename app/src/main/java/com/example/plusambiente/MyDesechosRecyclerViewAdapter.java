@@ -42,6 +42,7 @@ public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesech
         holder.mItem = mValues.get(position);
         holder.txtCodigo.setText(holder.mItem.getDes_codigo());
         holder.txtSolicitud.setText(holder.mItem.getSol_id());
+        holder.txtDsolid.setText(holder.mItem.getDsol_id());
         holder.txtDescripcion.setText(holder.mItem.getDes_descripcion());
         holder.txtUnidad.setText(holder.mItem.getCat_unidad());
         holder.txtPeligroso.setText(holder.mItem.getCat_peligroso());
@@ -67,6 +68,7 @@ public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesech
 
         public final TextView txtCodigo;
         public final TextView txtSolicitud;
+        public final TextView txtDsolid;
         public final TextView txtDescripcion;
         public final TextView txtUnidad;
         public final TextView txtPeligroso;
@@ -77,9 +79,10 @@ public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesech
             super(binding.getRoot());
             txtCodigo = binding.txtCodigo;
             txtSolicitud = binding.txtSolicitud;
+            txtDsolid = binding.txtDsolid;
             txtDescripcion = binding.txtDescripcion;
             txtUnidad = binding.txtUnidad;
-            txtPeligroso = binding.txtUnidad;
+            txtPeligroso = binding.txtPeligroso;
             edtCantidad = binding.edtCantidad;
             edtCantidad.addTextChangedListener(new TextWatcher() {
                 @Override
