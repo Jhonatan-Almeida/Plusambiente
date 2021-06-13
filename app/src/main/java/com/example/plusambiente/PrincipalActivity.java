@@ -95,7 +95,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
                             adaptador.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Intent intent=new Intent(PrincipalActivity.this,DesechoActivity.class);
+                                    Intent intent=new Intent(PrincipalActivity.this,DetalleActivity.class);
                                     intent.putExtra("sol_id",listaOdt.get
                                             (recyclerOdt.getChildAdapterPosition(v))
                                             .getSol_id());

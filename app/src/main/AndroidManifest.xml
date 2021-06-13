@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Plusambiente"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DesechoActivity"></activity>
+        <activity android:name=".DetalleActivity"></activity>
+        <activity android:name=".DesechoActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".PrincipalActivity" />
         <activity android:name=".PresentacionActivity">
