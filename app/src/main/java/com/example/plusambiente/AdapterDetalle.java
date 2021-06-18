@@ -1,17 +1,12 @@
 package com.example.plusambiente;
 
-import android.content.Context;
-import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,10 +17,10 @@ import java.util.ArrayList;
 
 
 public class AdapterDetalle extends RecyclerView.Adapter<AdapterDetalle.ViewHolderDetalle> implements View.OnClickListener {
-    ArrayList<desechos> listaDetalle;
+    ArrayList<desechosEntity> listaDetalle;
     String[] cantidades, detalleSolicitud;
     private View.OnClickListener listener;
-    public AdapterDetalle(ArrayList<desechos> listaDetalle) {
+    public AdapterDetalle(ArrayList<desechosEntity> listaDetalle) {
         this.listaDetalle = listaDetalle;
         cantidades = new  String[listaDetalle.size()];
     }

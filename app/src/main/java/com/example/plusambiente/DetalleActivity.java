@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,11 +24,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DetalleActivity extends AppCompatActivity implements View.OnClickListener{
     ListView lista;
-    ArrayList<desechos> desechosList;
+    ArrayList<desechosEntity> desechosEntityList;
     //ArrayList<desechos> listaDesecho;
     RecyclerView recyclerView;
     RequestQueue requestQueue;
@@ -53,9 +51,9 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         recyclerView = findViewById(R.id.rvDetalle);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         //2.- Cargar la lista de elementos
-        desechosList = new ArrayList<desechos>();
-        obteneDesechos("http://192.168.100.25/plusambiete2/servicios/cliente/listaDesechos.php?sol_id="+sol_id);
-        adapterDetalle = new AdapterDetalle(desechosList);
+        desechosEntityList = new ArrayList<desechosEntity>();
+        obteneDesechos("http://malta1481.startdedicated.com:8086/plusambiete2/servicios/cliente/listaDesechos.php?sol_id="+sol_id);
+        adapterDetalle = new AdapterDetalle(desechosEntityList);
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +85,7 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray jsonArray = jsonObject.getJSONArray("desecho");
-                            desechosList = new ArrayList<>();
+                            desechosEntityList = new ArrayList<>();
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
@@ -100,9 +98,9 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
                                 String dsol_cantidad = jsonObject1.getString("dsol_cantidad");
                                 //String sol_id, String des_codigo, String des_descripcion, String cat_unidad, String cat_peligroso, String dsol_cantidad,String dsol_id
 
-                                desechosList.add(new desechos(auxSolicitud, des_codigo, des_descripcion, cat_unidad,cat_peligroso, dsol_cantidad,dsol_id));
+                                desechosEntityList.add(new desechosEntity(auxSolicitud, des_codigo, des_descripcion, cat_unidad,cat_peligroso, dsol_cantidad,dsol_id));
                             }
-                            adapterDetalle = new AdapterDetalle(desechosList);
+                            adapterDetalle = new AdapterDetalle(desechosEntityList);
                             /*adapterDetalle.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {

@@ -1,11 +1,22 @@
 package com.example.plusambiente;
 
-public class desechos {
-    String sol_id, dsol_id,des_codigo, des_descripcion, cat_unidad, cat_peligroso;
-    String dsol_cantidad;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "detalle_odt")
+public class desechosEntity {
+
+    public String sol_id;
+    @PrimaryKey
+    public String dsol_id;
+    public String des_codigo;
+    public String des_descripcion;
+    public String cat_unidad;
+    public String cat_peligroso;
+    public String dsol_cantidad;
 
 
-    public desechos(String sol_id, String des_codigo, String des_descripcion, String cat_unidad, String cat_peligroso, String dsol_cantidad,String dsol_id) {
+    public desechosEntity(String sol_id, String des_codigo, String des_descripcion, String cat_unidad, String cat_peligroso, String dsol_cantidad, String dsol_id) {
         this.sol_id = sol_id;
         this.dsol_id = dsol_id;
         this.des_codigo = des_codigo;

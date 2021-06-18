@@ -34,7 +34,7 @@ import java.util.List;
 public class DesechosFragment extends Fragment {
     RecyclerView recyclerView;
     MyDesechosRecyclerViewAdapter adapterDesecho;
-    List<desechos> desechosList;
+    List<desechosEntity> desechosEntityList;
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -103,7 +103,7 @@ public class DesechosFragment extends Fragment {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray jsonArray = jsonObject.getJSONArray("desecho");
-                            desechosList = new ArrayList<>();
+                            desechosEntityList = new ArrayList<>();
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
@@ -116,9 +116,9 @@ public class DesechosFragment extends Fragment {
                                 String dsol_cantidad = jsonObject1.getString("dsol_cantidad");
 
 
-                                desechosList.add(new desechos(auxSolicitud, des_codigo, des_descripcion, cat_unidad, cat_peligroso, dsol_cantidad,dsol_id));
+                                desechosEntityList.add(new desechosEntity(auxSolicitud, des_codigo, des_descripcion, cat_unidad, cat_peligroso, dsol_cantidad,dsol_id));
                             }
-                            adapterDesecho = new MyDesechosRecyclerViewAdapter (getActivity(),desechosList);
+                            adapterDesecho = new MyDesechosRecyclerViewAdapter (getActivity(), desechosEntityList);
                             recyclerView.setAdapter(adapterDesecho);
 
                         } catch (JSONException e) {

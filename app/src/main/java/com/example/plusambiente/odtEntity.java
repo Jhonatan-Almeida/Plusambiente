@@ -1,9 +1,18 @@
 package com.example.plusambiente;
 
-public class odt{
-    String sol_id,sol_manifiesto,cli_nombre,tec_nombre,conductor;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-    public odt(String sol_id, String sol_manifiesto, String cli_nombre, String tec_nombre, String conductor) {
+@Entity(tableName = "odt")
+public class odtEntity {
+    @PrimaryKey
+    public String sol_id;
+    public String sol_manifiesto;
+    public String cli_nombre;
+    public String tec_nombre;
+    public String conductor;
+
+    public odtEntity(String sol_id, String sol_manifiesto, String cli_nombre, String tec_nombre, String conductor) {
         this.sol_id = sol_id;
         this.sol_manifiesto = sol_manifiesto;
         this.cli_nombre = cli_nombre;

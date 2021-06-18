@@ -1,27 +1,22 @@
 package com.example.plusambiente;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DesechoActivity extends AppCompatActivity {
     Bundle datos;
     FloatingActionButton btnRegresar,btnGuardar;
     String sol_id,per_nombres,per_identificacion;
-    List<desechos> desechosList;
+    List<desechosEntity> desechosEntityList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,22 +8,19 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.plusambiente.databinding.FragmentItemBinding;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
 
 public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesechosRecyclerViewAdapter.ViewHolder> {
     private Context ctx;
-    private final List<desechos> mValues;
+    private final List<desechosEntity> mValues;
     String[] cantidades;
 
-    public MyDesechosRecyclerViewAdapter(Context context,List<desechos> items) {
+    public MyDesechosRecyclerViewAdapter(Context context,List<desechosEntity> items) {
         ctx = context;
         mValues = items;
         cantidades = new String[items.size()];
@@ -73,7 +70,7 @@ public class MyDesechosRecyclerViewAdapter extends RecyclerView.Adapter<MyDesech
         public final TextView txtUnidad;
         public final TextView txtPeligroso;
         public final EditText edtCantidad;
-        public desechos mItem;
+        public desechosEntity mItem;
 
         public ViewHolder(FragmentItemBinding binding) {
             super(binding.getRoot());
