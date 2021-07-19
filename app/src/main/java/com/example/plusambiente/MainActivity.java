@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity{
                 usuario = edtUsuario.getText().toString();//obtener el texto del editText
                 password = edtPassword.getText().toString();//obtener el texto del editText
                 if(!usuario.isEmpty() && !password.isEmpty()){
-                    validarUsuario("http://192.168.100.25/plusambiete2/servicios/cliente/login.php");
+                    validarUsuario("http://144.91.69.179/plusambienteweb/servicios/cliente/login.php");
                 }else{
                     //Toast.makeText(MainActivity.this,"Ingresar las credenciales.!!",Toast.LENGTH_SHORT).show();
                     Snackbar.make(v,"Ingresar las credenciales.!!", Snackbar.LENGTH_LONG).show();
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity{
             public void onResponse(String response) {
                 if(!response.isEmpty()){
                     guardarPreferencias();
-                    buscarlogin("http://192.168.100.25/plusambiete2/servicios/cliente/loginG.php?usuario="+usuario+"&password="+password);
+                    buscarlogin("http://144.91.69.179/plusambienteweb/servicios/cliente/loginG.php?usuario="+usuario+"&password="+password);
                 }else{
                     Toast.makeText(MainActivity.this,"Credenciales invalidas...!",Toast.LENGTH_SHORT).show();
                     //Snackbar.make(findViewById(R.id.Login) ,"Credenciales invalidas...!", Snackbar.LENGTH_LONG).show();

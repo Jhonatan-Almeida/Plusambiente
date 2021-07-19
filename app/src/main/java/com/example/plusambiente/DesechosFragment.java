@@ -89,7 +89,7 @@ public class DesechosFragment extends Fragment {
             // Lista de elemento de desechos
 
             if(sol_id != null){
-                obteneDesechos("http://192.168.100.25/plusambiete2/servicios/cliente/listaDesechos.php?sol_id="+sol_id);
+                obteneDesechos("http://144.91.69.179/plusambienteweb/servicios/cliente/listaDesechos.php?sol_id="+sol_id);
             }
         }
         return view;

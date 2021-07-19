@@ -53,7 +53,7 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         //2.- Cargar la lista de elementos
         desechosEntityList = new ArrayList<desechosEntity>();
-        obteneDesechos("http://192.168.100.25/plusambiete2/servicios/cliente/listaDesechos.php?sol_id="+sol_id);
+        obteneDesechos("http://144.91.69.179/plusambienteweb/servicios/cliente/listaDesechos.php?sol_id="+sol_id);
         adapterDetalle = new AdapterDetalle(desechosEntityList);
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
