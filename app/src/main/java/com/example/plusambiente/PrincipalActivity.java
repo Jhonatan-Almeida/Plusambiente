@@ -50,7 +50,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
             recyclerOdt = (RecyclerView) findViewById(R.id.rvOdt);
             recyclerOdt.setLayoutManager(new GridLayoutManager(this, 1));
             listaOdtEntity = new ArrayList<odtEntity>();
-            obtenerodt("http://malta1481.startdedicated.com:8086/plusambiete2/servicios/cliente/ordenesTrabajo.php?identificacion="+identificacion);
+            obtenerodt("http://192.168.100.25/plusambiete2/servicios/cliente/ordenesTrabajo.php?identificacion="+identificacion);
         }
 
 

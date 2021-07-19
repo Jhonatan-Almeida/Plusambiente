@@ -7,7 +7,10 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface ostDao {
-    @Query("select * from detalle_odt")
+public interface odtDao {
+    @Query("select * from odt")
     LiveData<List<odtEntity>> getAll();
+
+    /*@Query("select * from odt where = :identificador")
+    desechosEntity findBySol(String sol_id);*/
 }

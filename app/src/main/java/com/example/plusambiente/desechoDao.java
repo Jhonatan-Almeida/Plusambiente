@@ -8,6 +8,10 @@ import java.util.List;
 
 @Dao
 public interface desechoDao {
-    @Query("select * from odt")
+    @Query("select * from detalle_odt")
     LiveData<List<desechosEntity>> getAll();
+
+    @Query("select * from detalle_odt where sol_id= :sol_id")
+    desechosEntity findBySol(String sol_id);
+   //
 }

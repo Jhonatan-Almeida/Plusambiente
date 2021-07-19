@@ -15,8 +15,8 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".DetalleActivity"></activity>
         <activity android:name=".DesechoActivity" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".PrincipalActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".PresentacionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -107,8 +107,8 @@ public class DesechosFragment extends Fragment {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
-                                String auxSolicitud = jsonObject1.getString("sol_id");
                                 String dsol_id = jsonObject1.getString("dsol_id");
+                                String auxSolicitud = jsonObject1.getString("sol_id");
                                 String des_codigo = jsonObject1.getString("des_codigo");
                                 String des_descripcion = jsonObject1.getString("des_descripcion");
                                 String cat_unidad = jsonObject1.getString("cat_unidad");
@@ -116,7 +116,7 @@ public class DesechosFragment extends Fragment {
                                 String dsol_cantidad = jsonObject1.getString("dsol_cantidad");
 
 
-                                desechosEntityList.add(new desechosEntity(auxSolicitud, des_codigo, des_descripcion, cat_unidad, cat_peligroso, dsol_cantidad,dsol_id));
+                                desechosEntityList.add(new desechosEntity(dsol_id,auxSolicitud, des_codigo, des_descripcion, cat_unidad, cat_peligroso, dsol_cantidad));
                             }
                             adapterDesecho = new MyDesechosRecyclerViewAdapter (getActivity(), desechosEntityList);
                             recyclerView.setAdapter(adapterDesecho);

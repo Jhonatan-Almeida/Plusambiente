@@ -5,7 +5,8 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "odt")
 public class odtEntity {
-    @PrimaryKey
+    @PrimaryKey (autoGenerate = true)
+    public int id_odt;
     public String sol_id;
     public String sol_manifiesto;
     public String cli_nombre;

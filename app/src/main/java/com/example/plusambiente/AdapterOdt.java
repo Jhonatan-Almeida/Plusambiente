@@ -3,6 +3,7 @@ package com.example.plusambiente;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -59,7 +60,8 @@ public class AdapterOdt extends RecyclerView.Adapter<AdapterOdt.ViewHolderEquipo
     }
 
     public class ViewHolderEquipos extends RecyclerView.ViewHolder {
-        TextView txtManifiesto, txtSolicitud, txtCliente, txtTecnico, txtConductor;
+        TextView txtManifiesto,  txtCliente, txtTecnico, txtConductor;
+        EditText txtSolicitud;
         public ViewHolderEquipos(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
             super(itemView);
             txtManifiesto = itemView.findViewById(R.id.txtManifiesto);

@@ -48,7 +48,12 @@ public class AdapterDetalle extends RecyclerView.Adapter<AdapterDetalle.ViewHold
 
     @Override
     public int getItemCount() {
-        return listaDetalle.size();
+        if (listaDetalle != null){
+            return listaDetalle.size();
+        }else{
+            return 0;
+        }
+
     }
 
     public String[] getCantidades() {

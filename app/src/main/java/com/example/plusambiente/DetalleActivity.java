@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -52,7 +53,7 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         //2.- Cargar la lista de elementos
         desechosEntityList = new ArrayList<desechosEntity>();
-        obteneDesechos("http://malta1481.startdedicated.com:8086/plusambiete2/servicios/cliente/listaDesechos.php?sol_id="+sol_id);
+        obteneDesechos("http://192.168.100.25/plusambiete2/servicios/cliente/listaDesechos.php?sol_id="+sol_id);
         adapterDetalle = new AdapterDetalle(desechosEntityList);
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,10 +70,16 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 Snackbar.make(v,"Se ha recuperado los datos",Snackbar.LENGTH_LONG).show();
-                  String[] cantidades = adapterDetalle.getCantidades();
+                  /*String[] cantidades = adapterDetalle.getCantidades();
                   for(int i = 0; i< cantidades.length;i++){
                       System.out.println(cantidades[i]);
-                  }
+                  }*/
+                for(int i = 0; i< adapterDetalle.getItemCount();i++){
+                    RecyclerView.ViewHolder holder = recyclerView.findViewHolderForItemId(i);
+                    EditText edtCantidad = holder.itemView.findViewById(R.id.edtCantidad);
+                    View dson_id = holder.itemView.findViewById(R.id.txtDsolid);
+                    System.out.println(edtCantidad+" "+dson_id);
+                }
             }
         });
     }
@@ -89,8 +96,8 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
-                                String auxSolicitud = jsonObject1.getString("sol_id");
                                 String dsol_id = jsonObject1.getString("dsol_id");
+                                String auxSolicitud = jsonObject1.getString("sol_id");
                                 String des_codigo = jsonObject1.getString("des_codigo");
                                 String des_descripcion = jsonObject1.getString("des_descripcion");
                                 String cat_unidad = jsonObject1.getString("cat_unidad");
@@ -98,7 +105,7 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
                                 String dsol_cantidad = jsonObject1.getString("dsol_cantidad");
                                 //String sol_id, String des_codigo, String des_descripcion, String cat_unidad, String cat_peligroso, String dsol_cantidad,String dsol_id
 
-                                desechosEntityList.add(new desechosEntity(auxSolicitud, des_codigo, des_descripcion, cat_unidad,cat_peligroso, dsol_cantidad,dsol_id));
+                                desechosEntityList.add(new desechosEntity(dsol_id,auxSolicitud, des_codigo, des_descripcion, cat_unidad,cat_peligroso, dsol_cantidad));
                             }
                             adapterDetalle = new AdapterDetalle(desechosEntityList);
                             /*adapterDetalle.setOnClickListener(new View.OnClickListener() {
